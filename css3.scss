@@ -1,0 +1,20 @@
+$myWidth:100%;
+$myHeight:100%;
+$size:100%;
+
+%equal-heights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+  background-image:url(car7.jpg);
+  width:$myWidth;
+  height: $myHeight;
+  background-size: $size;
+}
+#Gender , #loginerror{
+    height: $myHeight;
+   @extend %equal-heights;
+}

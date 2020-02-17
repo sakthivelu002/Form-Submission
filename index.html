@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css3.scss">
+    <script src="Login.js"></script>
+    <style media="screen">
+      .error{
+        color: #FF0000;
+      }
+      label{
+        color:black;
+      }
+      .ng-scope{
+        color: #FF0000;
+      }
+      #loginerror{
+        color: #FF0000;
+      }
+    </style>
+  </head>
+
+  <body class="bg" ng-app="app">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+    <section class="container-fluid">
+          <section class="row justify-content-center">
+              <section class="col-12 col-sm-6 col-md-3">
+               
+
+      <form class="form-container" method="post" name="LoginForm" onsubmit="loginValid()">
+
+         <div class="form-group" id="Email">
+           <label for="InputEmail">Email Address(*)</label>
+           <input type="email" name="userEmail" class="form-control" id="InputEmail" ng-model="email" ng-required="true" />
+           
+           <div ng-messages="LoginForm.userEmail.$error">
+               <div ng-message="required">This field is required</div>
+               <div ng-message="email">Your email address is invalid</div>
+           </div>
+         </div>
+
+         <div class="form-group" id="Password">
+           <label for="InputPassword">Password</label>
+           <input type="password" name="userPass" class="form-control" id="InputPass" ng-model="pass" ng-maxlength=20 ng-pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/" ng-required="true" />
+           <div ng-messages="LoginForm.userPass.$error">
+               <div ng-message="required">This field is required</div>
+               <div ng-message="pattern">Password should be at least 8 characters long and should contain
+                  one number,one character and one special character </div>
+               <div ng-message="maxlength">Password should not exceed 20 characters</div>
+            </div>
+         </div>
+
+         <button ng-disabled="LoginForm.$invalid" class="btn btn-primary btn-block" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom">Login</button>
+
+         <div id="loginerror" class="form-group"></div>
+
+         <div class="form-group">
+           <small class="text-muted form-text text-center">
+              Not have an account yet?<a href="Signup.html">&nbsp; Signup</a>
+           </small>
+         </div>
+
+      </form>
+
+          </section>
+        </section>
+      </section>
+
+      <script src="Login.js"></script>
+      <script src="jquery.js"></script>
+      <script src="jquery.validate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+      <script>
+      var app = angular.module('app',['ngMessages']);
+      </script>
+  </body>
+</html>
